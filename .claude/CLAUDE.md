@@ -28,6 +28,10 @@ Before marking ANY substantive work as done, invoke the `critic` agent.
 | `critic` | Verify findings, challenge claims, block shortcuts |
 | `reviewer` | Review written content (emails, docs, sequences) |
 
+## Global Email Rules (ALL campaigns, ALL emails, always)
+
+- **Subject lines: 5 words max — no exceptions, ever**
+
 ## Data Integrity Rules
 
 - Never commit PII (names, emails, phone numbers) to git
