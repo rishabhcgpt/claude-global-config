@@ -32,30 +32,18 @@ claude mcp add --scope user memory npx -y @modelcontextprotocol/server-memory 2>
   && echo "    ✓ memory MCP added" \
   || echo "    ~ memory MCP already exists, skipping"
 
-# HubSpot MCP (OAuth)
-echo ""
-echo "    HubSpot MCP requires your Client Secret."
-echo "    Client ID: a3ae8e2e-5062-41ed-9811-95e8ec3bcf48"
-echo ""
-read -s -p "    Paste HubSpot Client Secret and press Enter: " HS_SECRET
-echo ""
+# HubSpot — connected via claude.ai account connector, no local setup needed
+echo "    ✓ HubSpot: connected via claude.ai account (works on all machines automatically)"
 
-MCP_CLIENT_SECRET="$HS_SECRET" claude mcp add --transport http --scope user \
-  --client-id a3ae8e2e-5062-41ed-9811-95e8ec3bcf48 \
-  --client-secret \
-  --callback-port 8080 \
-  hubspot https://mcp.hubspot.com/anthropic 2>/dev/null \
-  && echo "    ✓ HubSpot MCP added" \
-  || echo "    ~ HubSpot MCP already exists, skipping"
-
-# ── 3. Authenticate HubSpot ───────────────────────────────────────────────────
+# ── 3. Done ───────────────────────────────────────────────────────────────────
 echo ""
-echo "[3/3] Almost done."
+echo "[3/3] Done."
 echo ""
-echo "    One manual step remaining:"
-echo "    1. Open a new terminal"
-echo "    2. Run: claude"
-echo "    3. Type: /mcp"
-echo "    4. Select 'hubspot' → complete browser login"
+echo "    All MCP connectors (HubSpot, CustomGPT, Granola) are account-level —"
+echo "    they work automatically in every Claude Code session on every machine."
 echo ""
-echo "Setup complete. HubSpot will be active in all Claude Code sessions after browser auth."
+echo "    To authenticate pending connectors (Slack, BigQuery, Atlassian etc):"
+echo "    1. Open a terminal → run: claude"
+echo "    2. Type: /mcp → select connector → complete browser login"
+echo ""
+echo "Setup complete."

@@ -27,11 +27,41 @@ bash setup.sh
 This installs:
 - CLAUDE.md, critic agent, stop hook
 - Memory MCP (global)
-- HubSpot MCP via OAuth (prompts for client secret)
 
-Then do the one-time browser auth:
-1. Open a terminal → run `claude`
-2. Type `/mcp` → select **hubspot** → log in via browser
+## MCP Connectors
+
+MCP connectors are tied to the **Claude.ai account** (rishabh@customgpt.ai) — they work automatically across all devices and all Claude Code sessions. No per-machine setup required.
+
+### Connected ✅
+
+| Connector | How Connected | Notes |
+|-----------|--------------|-------|
+| **HubSpot** | claude.ai account | Contacts, companies, deals, carts — read + write. Connected 2026-02-21. |
+| **CustomGPT.ai** | claude.ai account | All Sources project (ID: 1403). |
+| **Granola** | claude.ai account | Meeting notes. |
+| **Memory** | Local MCP (stdio) | `@modelcontextprotocol/server-memory` — installed via setup.sh |
+
+### Needs Authentication ⚠️
+
+These are configured on the account but haven't been authenticated yet:
+
+| Connector | URL |
+|-----------|-----|
+| BigQuery | customgpt-bcp-fad19d6e4098.herokuapp.com |
+| Slack | mcp.slack.com |
+| Atlassian | mcp.atlassian.com |
+| WordPress.com | public-api.wordpress.com |
+| Ahrefs | api.ahrefs.com |
+| ZoomInfo | mcp.zoominfo.com |
+
+To authenticate any of these: open Claude Code → `/mcp` → select the connector → complete browser login.
+
+### HubSpot Notes
+- OAuth App ID: 31869333 — attempted setup on 2026-02-21 but abandoned (account lacks CMS scopes required by `mcp.hubspot.com/anthropic`)
+- Connection works via the claude.ai HubSpot connector instead — no OAuth required
+- Available scopes: contacts, companies, deals, tasks, calls, meetings, tickets, notes, line items
+
+---
 
 ## Critic Gate (3 Layers)
 
