@@ -14,18 +14,24 @@ Global Claude Code configuration for Rishabh Arora — applies across every proj
 └── settings.json          ← Registers the Stop hook globally
 ```
 
-## How to Install
+## How to Install (New Machine)
 
-Copy to `~/.claude/`:
+Run the setup script — it handles everything:
 
 ```bash
-cp -r .claude/CLAUDE.md         ~/.claude/CLAUDE.md
-cp -r .claude/agents/            ~/.claude/agents/
-cp -r .claude/hooks/             ~/.claude/hooks/
-chmod +x ~/.claude/hooks/critic-gate.sh
-
-# Merge settings.json hooks block into your existing ~/.claude/settings.json
+git clone https://github.com/rishabhcgpt/claude-global-config
+cd claude-global-config
+bash setup.sh
 ```
+
+This installs:
+- CLAUDE.md, critic agent, stop hook
+- Memory MCP (global)
+- HubSpot MCP via OAuth (prompts for client secret)
+
+Then do the one-time browser auth:
+1. Open a terminal → run `claude`
+2. Type `/mcp` → select **hubspot** → log in via browser
 
 ## Critic Gate (3 Layers)
 
