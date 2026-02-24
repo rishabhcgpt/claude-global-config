@@ -40,6 +40,37 @@ MCP connectors are tied to the **Claude.ai account** (rishabh@customgpt.ai) — 
 | **CustomGPT.ai** | claude.ai account | All Sources project (ID: 1403). |
 | **Granola** | claude.ai account | Meeting notes. |
 | **Memory** | Local MCP (stdio) | `@modelcontextprotocol/server-memory` — installed via setup.sh |
+| **Gmail** | Local MCP (stdio) | `@modelcontextprotocol/server-gmail` — installed via setup.sh, requires credentials file (see below) |
+
+### Gmail Setup
+
+Gmail requires an OAuth credentials file on each machine. `setup.sh` installs the MCP automatically **if** `~/gmail-credentials.json` exists.
+
+**Setting up Gmail on a new machine:**
+
+1. Copy `gmail-credentials.json` from your existing machine:
+   ```bash
+   # From your old machine (adjust IP/hostname):
+   scp ~/gmail-credentials.json user@new-machine:~/gmail-credentials.json
+   ```
+   Or via AirDrop / USB — just place it at `~/gmail-credentials.json`.
+
+2. Then run `setup.sh` — it will detect the file and register Gmail MCP automatically.
+
+3. Verify it worked:
+   ```bash
+   claude mcp list
+   # Should show: gmail
+   ```
+
+**If you already ran setup.sh before copying the credentials:**
+```bash
+claude mcp add --scope user gmail \
+  --env GMAIL_CREDENTIALS_PATH="$HOME/gmail-credentials.json" \
+  npx -y @modelcontextprotocol/server-gmail
+```
+
+> `gmail-credentials.json` contains OAuth tokens — never commit it to git.
 
 ### Needs Authentication ⚠️
 

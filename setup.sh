@@ -35,12 +35,29 @@ claude mcp add --scope user memory npx -y @modelcontextprotocol/server-memory 2>
 # HubSpot — connected via claude.ai account connector, no local setup needed
 echo "    ✓ HubSpot: connected via claude.ai account (works on all machines automatically)"
 
+# Gmail MCP
+GMAIL_CREDS="$HOME/gmail-credentials.json"
+if [ -f "$GMAIL_CREDS" ]; then
+  claude mcp add --scope user gmail \
+    --env GMAIL_CREDENTIALS_PATH="$GMAIL_CREDS" \
+    npx -y @modelcontextprotocol/server-gmail 2>/dev/null \
+    && echo "    ✓ Gmail MCP added (credentials found at $GMAIL_CREDS)" \
+    || echo "    ~ Gmail MCP already exists, skipping"
+else
+  echo "    ⚠  Gmail MCP skipped — credentials not found at $GMAIL_CREDS"
+  echo "       Copy gmail-credentials.json from your other machine, then re-run:"
+  echo "       claude mcp add --scope user gmail --env GMAIL_CREDENTIALS_PATH=\"\$HOME/gmail-credentials.json\" npx -y @modelcontextprotocol/server-gmail"
+fi
+
 # ── 3. Done ───────────────────────────────────────────────────────────────────
 echo ""
 echo "[3/3] Done."
 echo ""
-echo "    All MCP connectors (HubSpot, CustomGPT, Granola) are account-level —"
-echo "    they work automatically in every Claude Code session on every machine."
+echo "    Account-level connectors (HubSpot, CustomGPT, Granola) work automatically"
+echo "    on every machine — no setup needed."
+echo ""
+echo "    Gmail MCP requires ~/gmail-credentials.json on each machine."
+echo "    See README.md → 'Gmail Setup' for transfer instructions."
 echo ""
 echo "    To authenticate pending connectors (Slack, BigQuery, Atlassian etc):"
 echo "    1. Open a terminal → run: claude"
