@@ -10,9 +10,9 @@ echo "Setting up Claude Code global config..."
 echo ""
 
 # ── 1. Copy global Claude files ───────────────────────────────────────────────
-echo "[1/3] Installing CLAUDE.md, agents, hooks..."
+echo "[1/3] Installing CLAUDE.md, agents, hooks, commands..."
 
-mkdir -p ~/.claude/agents ~/.claude/hooks
+mkdir -p ~/.claude/agents ~/.claude/hooks ~/.claude/commands
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -21,7 +21,11 @@ cp "$SCRIPT_DIR/.claude/agents/critic.md"     ~/.claude/agents/critic.md
 cp "$SCRIPT_DIR/.claude/hooks/critic-gate.sh" ~/.claude/hooks/critic-gate.sh
 chmod +x ~/.claude/hooks/critic-gate.sh
 
-echo "    ✓ CLAUDE.md, critic agent, and stop hook installed"
+# Slash commands
+cp "$SCRIPT_DIR/.claude/commands/cart.md"      ~/.claude/commands/cart.md
+cp "$SCRIPT_DIR/.claude/commands/post-call.md" ~/.claude/commands/post-call.md
+
+echo "    ✓ CLAUDE.md, critic agent, stop hook, and slash commands installed"
 
 # ── 2. Add MCP servers ────────────────────────────────────────────────────────
 echo ""
