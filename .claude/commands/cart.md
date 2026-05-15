@@ -64,7 +64,7 @@ I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attac
 Here's how I can help:
 Get on extended 14 day free trial here (I'll extend it to 2 weeks from the backend): [STRIPE_RESUME_LINK]
 
-If it helps, I'm also happy to hop on a quick 15-min call as well, if you have queries or you'd like to set it up together: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation/?utm_source=website&utm_medium=remarketing&utm_campaign=abandoned_cart&utm_content=recovery
+if you'd like, we can also hop on a quick 15 min call: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation/?utm_source=website&utm_medium=remarketing&utm_campaign=abandoned_cart&utm_content=recovery
 
 P.S. (We use Stripe to filter spam signups, you can remove your card right after activating. Zero chance of accidental billing.)
 
@@ -78,6 +78,7 @@ Rishabh
 - No pain line — go straight to one-pager line
 - One-pager line uses "CustomGPT" not "it"
 - ONE CTA: Stripe resume link, two lines ("Here's how I can help:" then the link line)
+- Soft close line: `"if you'd like, we can also hop on a quick 15 min call: [CALENDLY_LINK]"` — short, lowercase, no filler words. Do NOT expand this line.
 - Calendly link is plain text at end of the soft close line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail)
 - P.S. Stripe reassurance below soft close on its own line
 - Sign-off: "Best,\nRishabh" only
