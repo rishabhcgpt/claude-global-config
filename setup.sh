@@ -22,8 +22,9 @@ cp "$SCRIPT_DIR/.claude/hooks/critic-gate.sh" ~/.claude/hooks/critic-gate.sh
 chmod +x ~/.claude/hooks/critic-gate.sh
 
 # Slash commands
-cp "$SCRIPT_DIR/.claude/commands/cart.md"      ~/.claude/commands/cart.md
-cp "$SCRIPT_DIR/.claude/commands/post-call.md" ~/.claude/commands/post-call.md
+cp "$SCRIPT_DIR/.claude/commands/cart.md"          ~/.claude/commands/cart.md
+cp "$SCRIPT_DIR/.claude/commands/post-call.md"     ~/.claude/commands/post-call.md
+cp "$SCRIPT_DIR/.claude/commands/demo-creator.md"  ~/.claude/commands/demo-creator.md
 
 echo "    ✓ CLAUDE.md, critic agent, stop hook, and slash commands installed"
 
