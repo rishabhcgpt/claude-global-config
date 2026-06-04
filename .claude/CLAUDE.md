@@ -32,6 +32,16 @@ Before marking ANY substantive work as done, invoke the `critic` agent.
 
 - **Subject lines: 5 words max — no exceptions, ever**
 
+## Contract Generation Rules (Non-Negotiable)
+
+When generating a CustomGPT.ai Service Order contract via `generate_contract.js`:
+
+- **Premium or Custom Premium edition → do NOT include the Service Agreement link or the DPA link**
+- These links are already removed from the generator. Do not add them back for these tiers.
+- This applies regardless of the customer or deal — no exceptions for Premium/Custom Premium.
+
+Generator location: `/Users/riahabharora/customgpt-contract-drafter/generate_contract.js`
+
 ## Data Integrity Rules
 
 - Never commit PII (names, emails, phone numbers) to git
