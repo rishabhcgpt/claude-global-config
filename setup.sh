@@ -26,6 +26,7 @@ cp "$SCRIPT_DIR/.claude/commands/cart.md"          ~/.claude/commands/cart.md
 cp "$SCRIPT_DIR/.claude/commands/post-call.md"     ~/.claude/commands/post-call.md
 cp "$SCRIPT_DIR/.claude/commands/demo-creator.md"  ~/.claude/commands/demo-creator.md
 cp "$SCRIPT_DIR/.claude/commands/battlecard.md"    ~/.claude/commands/battlecard.md
+cp "$SCRIPT_DIR/.claude/commands/ft2.md"           ~/.claude/commands/ft2.md
 
 echo "    ✓ CLAUDE.md, critic agent, stop hook, and slash commands installed"
 
