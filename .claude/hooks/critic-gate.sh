@@ -26,10 +26,7 @@ if [[ "${SUBSTANTIVE:-0}" -eq 0 ]]; then
   exit 0
 fi
 
-# Check if critic was already invoked in this session
-# NOTE: only sees Agent calls made directly by this session's own transcript.
-# If critic is invoked from within a forked sub-agent instead, it lives in the
-# fork's own transcript and won't be visible here — known limitation.
+# Check if critic was already invoked directly by this session
 CRITIC_RAN=$(jq -R -r 'fromjson? | select(.message.content != null) | .message.content[]? | select(.type=="tool_use" and .name=="Agent") | .input.subagent_type // empty' "$TRANSCRIPT_PATH" 2>/dev/null | grep -c '^critic$' || true)
 
 if [[ "${CRITIC_RAN:-0}" -gt 0 ]]; then
@@ -37,9 +34,20 @@ if [[ "${CRITIC_RAN:-0}" -gt 0 ]]; then
   exit 0
 fi
 
+# Also check for critic invoked from within a forked sub-agent: each subagent
+# invocation (including forks) gets its own agent-<id>.meta.json with an
+# agentType field in a sibling "subagents" dir next to the transcript.
+SUBAGENTS_DIR="${TRANSCRIPT_PATH%.jsonl}/subagents"
+if [[ -d "$SUBAGENTS_DIR" ]]; then
+  NESTED_CRITIC=$(grep -l '"agentType":"critic"' "$SUBAGENTS_DIR"/*.meta.json 2>/dev/null | wc -l | tr -d ' ' || true)
+  if [[ "${NESTED_CRITIC:-0}" -gt 0 ]]; then
+    exit 0
+  fi
+fi
+
 # Substantive work was done but critic hasn't run — block and remind
 jq -n '{
   "decision": "block",
   "reason": "You produced substantive work (file writes/edits detected) but the critic agent has not run yet. Invoke the critic agent to verify your work before finishing. The critic should challenge your claims, check for gaps, and confirm evidence backs your conclusions. After critic runs, you may complete.",
   "systemMessage": "🔍 Critic Gate: Substantive work detected. Run the critic agent before completing."
-}'
+}' || true
