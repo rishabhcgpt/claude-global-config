@@ -5,7 +5,7 @@ You are running the CustomGPT abandon cart recovery workflow. Execute all steps 
 ---
 
 ## Repo Location
-`/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/`
+`/Users/riahabharora/hot-vs-cold-abandon-carts/`
 
 All campaign files go in: `examples/{company-slug-firstname}/`
 Done campaigns go in: `examples/done/{company-slug-firstname}/`
@@ -78,7 +78,7 @@ Rishabh
 - No pain line — go straight to one-pager line
 - One-pager line uses "CustomGPT" not "it"
 - ONE CTA: Stripe resume link, two lines ("Here's how I can help:" then the link line)
-- Soft close line: `"if you'd like, we can also hop on a quick 15 min call: [CALENDLY_LINK]"` — short, lowercase, no filler words. Do NOT expand this line.
+- Soft close line: `"If it helps, I'm also happy to hop on a quick 15-min call as well, if you have queries or you'd like to set it up together: [CALENDLY_LINK]"` — Calendly link is plain text at end of the line — Rishabh hyperlinks manually in Gmail.
 - Calendly link is plain text at end of the soft close line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail)
 - P.S. Stripe reassurance below soft close on its own line
 - Sign-off: "Best,\nRishabh" only
@@ -113,7 +113,7 @@ Include: name, email, role, company, website, LinkedIn, company research summary
 
 Run this exact command (update folder and company name):
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
 ```
 
 ---
