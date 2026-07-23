@@ -15,7 +15,8 @@ Done campaigns go in: `examples/done/{company-slug-firstname}/`
 ## Input
 The user will provide:
 1. The lead's email address
-2. Their Stripe resume link
+
+No Stripe resume link is needed or used (removed 2026-07-20 — there's no Stripe/card flow left in the funnel). Do not ask for one, and do not accept one if pasted — ignore it and use the free-trial-reply CTA below instead.
 
 ---
 
@@ -62,11 +63,9 @@ saw you started a CustomGPT account but didn't finish. This is where I come in!
 I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attached).
 
 Here's how I can help:
-Get on extended 14 day free trial here (I'll extend it to 2 weeks from the backend): [STRIPE_RESUME_LINK]
+Get you on an extended 14 day free trial, just reply and I'll set it up for you
 
 if you'd like, we can also hop on a quick 15 min call: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation/?utm_source=website&utm_medium=remarketing&utm_campaign=abandoned_cart&utm_content=recovery
-
-P.S. (We use Stripe to filter spam signups, you can remove your card right after activating. Zero chance of accidental billing.)
 
 Best,
 Rishabh
@@ -77,12 +76,11 @@ Rishabh
 - Opener: two lines exactly as shown — comma after first name, no em dash
 - No pain line — go straight to one-pager line
 - One-pager line uses "CustomGPT" not "it"
-- ONE CTA: Stripe resume link, two lines ("Here's how I can help:" then the link line)
-- Soft close line: `"If it helps, I'm also happy to hop on a quick 15-min call as well, if you have queries or you'd like to set it up together: [CALENDLY_LINK]"` — Calendly link is plain text at end of the line — Rishabh hyperlinks manually in Gmail.
-- Calendly link is plain text at end of the soft close line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail)
-- P.S. Stripe reassurance below soft close on its own line
+- ONE CTA only: "Here's how I can help:" then "Get you on an extended 14 day free trial, just reply and I'll set it up for you" — no Stripe link, no resume link of any kind
+- Soft close line: `"if you'd like, we can also hop on a quick 15 min call: [CALENDLY_LINK]"` — Calendly link is plain text at end of the line — Rishabh hyperlinks manually in Gmail.
+- No P.S. Stripe reassurance line — there's no Stripe/card flow left to reassure about
 - Sign-off: "Best,\nRishabh" only
-- No bold, no bullets, no extra CTAs
+- No bold, no bullets, no extra CTAs, no mention of Stripe anywhere
 
 ### one-pager.html
 
@@ -123,7 +121,7 @@ Run this exact command (update folder and company name):
 Use `mcp__claude_ai_Gmail__gmail_create_draft`:
 - `to`: lead's email
 - `subject`: "Made this for [Company]"
-- `body`: full email text with actual Stripe link embedded (plain text, contentType: text/plain)
+- `body`: full email text, no Stripe link (plain text, contentType: text/plain)
 - Note: Calendly link in body is plain text — Rishabh hyperlinks it manually in Gmail
 
 ---
@@ -141,6 +139,7 @@ Then say: "Ready for the next lead."
 
 Before any `git push`, scrub `email.md` and `prospect-data.md`:
 - Replace email addresses with `[REDACTED]`
-- Replace Stripe resume links with `[REDACTED]`
 - Remove last names
 - Keep: first names, company names, one-pager HTML/PDF, workflow docs
+
+(No Stripe links exist in the funnel anymore — removed 2026-07-20 — so there's nothing Stripe-related left to scrub.)
