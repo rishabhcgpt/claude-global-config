@@ -5,7 +5,7 @@ You are running the CustomGPT abandon cart recovery workflow. Execute all steps 
 ---
 
 ## Repo Location
-`/Users/riahabharora/hot-vs-cold-abandon-carts/`
+`/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/`
 
 All campaign files go in: `examples/{company-slug-firstname}/`
 Done campaigns go in: `examples/done/{company-slug-firstname}/`
@@ -15,8 +15,7 @@ Done campaigns go in: `examples/done/{company-slug-firstname}/`
 ## Input
 The user will provide:
 1. The lead's email address
-
-No Stripe resume link is needed or used (removed 2026-07-20 — there's no Stripe/card flow left in the funnel). Do not ask for one, and do not accept one if pasted — ignore it and use the free-trial-reply CTA below instead.
+2. (Optional, no longer required) A Stripe resume link — as of 2026-07-20 the email CTA no longer uses a Stripe link at all, so this is not needed. If one is pasted anyway, ignore it for the email body.
 
 ---
 
@@ -57,15 +56,13 @@ Use this EXACT template — no variations:
 
 ---
 
-Hi [First Name], this is not an automated message (real person here, I promise =) )
-saw you started a CustomGPT account but didn't finish. This is where I come in!
+Hi [First Name], saw you started a CustomGPT account but didn't finish.
+
+I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot if you're up for it: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min
+
+After that, I'll get you set up on a free trial, no card required.
 
 I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attached).
-
-Here's how I can help:
-Get you on an extended 14 day free trial, just reply and I'll set it up for you
-
-if you'd like, we can also hop on a quick 15 min call: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation/?utm_source=website&utm_medium=remarketing&utm_campaign=abandoned_cart&utm_content=recovery
 
 Best,
 Rishabh
@@ -73,14 +70,16 @@ Rishabh
 
 **Rules (non-negotiable):**
 - Subject: "Made this for [Company]" — always this format
-- Opener: two lines exactly as shown — comma after first name, no em dash
-- No pain line — go straight to one-pager line
-- One-pager line uses "CustomGPT" not "it"
-- ONE CTA only: "Here's how I can help:" then "Get you on an extended 14 day free trial, just reply and I'll set it up for you" — no Stripe link, no resume link of any kind
-- Soft close line: `"if you'd like, we can also hop on a quick 15 min call: [CALENDLY_LINK]"` — Calendly link is plain text at end of the line — Rishabh hyperlinks manually in Gmail.
-- No P.S. Stripe reassurance line — there's no Stripe/card flow left to reassure about
+- Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line (removed 2026-07-28), no "Here's how I can help-" (removed 2026-07-28)
+- No pain line
+- One-pager line uses "CustomGPT" not "it" — sits last, right before the sign-off (moved 2026-07-28)
+- **Funnel goal changed 2026-07-28: the call is now the primary ask (to understand the lead's AI vision), and the free trial is framed as the post-call next step — NOT a self-serve reply-to-get-a-trial offer anymore.**
+- CTA line: `"I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot if you're up for it: [CALENDLY_LINK]"` — this is the segue + the one clickable ask, replacing the old "Get you on an extended 14 day free trial, just reply..." line entirely
+- Calendly link is plain text inline in the CTA line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail); always use the `recovery_v2`/`day1_15min` UTM, never the old `website`/`remarketing` UTM
+- Post-call line: `"After that, I'll get you set up on a free trial, no card required."` — states the trial as the payoff of the call, not an independent offer. This is a benefit statement, not a second CTA.
+- No P.S. Stripe reassurance line — removed 2026-07-20 since there's no longer a Stripe link/card flow in the email to reassure about
 - Sign-off: "Best,\nRishabh" only
-- No bold, no bullets, no extra CTAs, no mention of Stripe anywhere
+- No bold, no bullets, no extra CTAs
 
 ### one-pager.html
 
@@ -111,7 +110,7 @@ Include: name, email, role, company, website, LinkedIn, company research summary
 
 Run this exact command (update folder and company name):
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
 ```
 
 ---
@@ -121,7 +120,7 @@ Run this exact command (update folder and company name):
 Use `mcp__claude_ai_Gmail__gmail_create_draft`:
 - `to`: lead's email
 - `subject`: "Made this for [Company]"
-- `body`: full email text, no Stripe link (plain text, contentType: text/plain)
+- `body`: full email text (plain text, contentType: text/plain) — no Stripe link embedded
 - Note: Calendly link in body is plain text — Rishabh hyperlinks it manually in Gmail
 
 ---
@@ -139,7 +138,6 @@ Then say: "Ready for the next lead."
 
 Before any `git push`, scrub `email.md` and `prospect-data.md`:
 - Replace email addresses with `[REDACTED]`
+- Replace Stripe resume links with `[REDACTED]`
 - Remove last names
 - Keep: first names, company names, one-pager HTML/PDF, workflow docs
-
-(No Stripe links exist in the funnel anymore — removed 2026-07-20 — so there's nothing Stripe-related left to scrub.)
