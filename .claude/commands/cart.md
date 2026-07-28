@@ -70,7 +70,7 @@ Rishabh
 
 **Rules (non-negotiable):**
 - Subject: "Made this for [Company]" — always this format
-- Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line (removed 2026-07-28), no "Here's how I can help-" (removed 2026-07-28)
+- Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line, no "This is where I come in!", no "Here's how I can help-" (all removed 2026-07-28)
 - No pain line
 - One-pager line uses "CustomGPT" not "it" — sits last, right before the sign-off (moved 2026-07-28)
 - **Funnel goal changed 2026-07-28: the call is now the primary ask (to understand the lead's AI vision), and the free trial is framed as the post-call next step — NOT a self-serve reply-to-get-a-trial offer anymore.**
@@ -138,6 +138,7 @@ Then say: "Ready for the next lead."
 
 Before any `git push`, scrub `email.md` and `prospect-data.md`:
 - Replace email addresses with `[REDACTED]`
-- Replace Stripe resume links with `[REDACTED]`
 - Remove last names
 - Keep: first names, company names, one-pager HTML/PDF, workflow docs
+
+(No Stripe links exist in the funnel anymore — removed 2026-07-20 — so there's nothing Stripe-related left to scrub.)
