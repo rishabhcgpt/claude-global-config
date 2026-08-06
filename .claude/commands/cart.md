@@ -58,11 +58,11 @@ Use this EXACT template — no variations:
 
 Hi [First Name], saw you started a CustomGPT account but didn't finish.
 
-I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot if you're up for it: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min
+what is [Company] looking to do with AI? here's a 15 min slot if you're up for it: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min
 
 After that, I'll get you set up on a free trial, no card required.
 
-I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attached).
+also made a quick doc with some ideas for you (its attached below)
 
 Best,
 Rishabh
@@ -72,11 +72,11 @@ Rishabh
 - Subject: "Made this for [Company]" — always this format
 - Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line, no "This is where I come in!", no "Here's how I can help-" (all removed 2026-07-28)
 - No pain line
-- One-pager line uses "CustomGPT" not "it" — sits last, right before the sign-off (moved 2026-07-28)
-- **Funnel goal changed 2026-07-28: the call is now the primary ask (to understand the lead's AI vision), and the free trial is framed as the post-call next step — NOT a self-serve reply-to-get-a-trial offer anymore.**
-- CTA line: `"I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot if you're up for it: [CALENDLY_LINK]"` — this is the segue + the one clickable ask, replacing the old "Get you on an extended 14 day free trial, just reply..." line entirely
+- **CTA line rewritten 2026-08-06 to match Rishabh's actual latest sent style (was previously "I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot..."):** `"what is [Company] looking to do with AI? here's a 15 min slot if you're up for it: [CALENDLY_LINK]"` — lowercase "what", casual and short, this is the segue + the one clickable ask
+- **Funnel goal (unchanged since 2026-07-28): the call is the primary ask (to understand the lead's AI vision), and the free trial is framed as the post-call next step — NOT a self-serve reply-to-get-a-trial offer.**
 - Calendly link is plain text inline in the CTA line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail); always use the `recovery_v2`/`day1_15min` UTM, never the old `website`/`remarketing` UTM
 - Post-call line: `"After that, I'll get you set up on a free trial, no card required."` — states the trial as the payoff of the call, not an independent offer. This is a benefit statement, not a second CTA.
+- **One-pager line rewritten 2026-08-06 to match Rishabh's actual latest sent style (was previously "I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attached)."):** `"also made a quick doc with some ideas for you (its attached below)"` — lowercase "also", no company name, no "CustomGPT" mention, casual — sits last, right before the sign-off
 - No P.S. Stripe reassurance line — removed 2026-07-20 since there's no longer a Stripe link/card flow in the email to reassure about
 - Sign-off: "Best,\nRishabh" only
 - No bold, no bullets, no extra CTAs
@@ -85,7 +85,7 @@ Rishabh
 
 Rules:
 - Exactly 1 page
-- `@page { margin: 0.35in; size: letter; }`
+- `@page { margin: 0; size: letter; }` — any nonzero margin causes Chrome to print its default date/file-path/page-count header-footer into that space
 - `body { width: 750px; padding: 18px 32px; font-size: 11.5px; }`
 - Header: left (h1 in purple + subtitle) | right (📅 Book a 15-Min Call button + "with Rishabh @ CustomGPT")
 - Book button href: `https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min`
