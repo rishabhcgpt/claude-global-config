@@ -5,7 +5,7 @@ You are running the CustomGPT abandon cart recovery workflow. Execute all steps 
 ---
 
 ## Repo Location
-`/Users/riahabharora/hot-vs-cold-abandon-carts/`
+`/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/`
 
 All campaign files go in: `examples/{company-slug-firstname}/`
 Done campaigns go in: `examples/done/{company-slug-firstname}/`
@@ -110,7 +110,7 @@ Include: name, email, role, company, website, LinkedIn, company research summary
 
 Run this exact command (update folder and company name):
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
 ```
 
 ---
