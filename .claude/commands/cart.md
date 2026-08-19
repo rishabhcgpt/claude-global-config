@@ -5,7 +5,7 @@ You are running the CustomGPT abandon cart recovery workflow. Execute all steps 
 ---
 
 ## Repo Location
-`/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/`
+`/Users/riahabharora/hot-vs-cold-abandon-carts/`
 
 All campaign files go in: `examples/{company-slug-firstname}/`
 Done campaigns go in: `examples/done/{company-slug-firstname}/`
@@ -60,7 +60,7 @@ Hi [First Name], saw you started a CustomGPT account but didn't finish.
 
 what is [Company] looking to do with AI? here's a 15 min slot if you're up for it: https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min
 
-After that, I'll get you set up on a free trial, no card required.
+If it's a fit, I'll get you set up on a free trial, no card required.
 
 also made a quick doc with some ideas for you (its attached below)
 
@@ -70,13 +70,13 @@ Rishabh
 
 **Rules (non-negotiable):**
 - Subject: "Made this for [Company]" — always this format
-- Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line, no "This is where I come in!", no "Here's how I can help-" (all removed 2026-07-28)
+- Opener: one line — "Hi [First Name], saw you started a CustomGPT account but didn't finish." — comma after first name, no em dash, no "real person here" line, no "This is where I come in!", no "Here's how I can help-" (all removed 2026-07-28). A 3-email test of "I can help [Company] with AI," on 2026-08-17 was abandoned by the next day — confirmed absent from every Aug 18-19 send — do not use it.
 - No pain line
-- **CTA line rewritten 2026-08-06 to match Rishabh's actual latest sent style (was previously "I'd love to get a quick sense of what [Company] is looking to do with AI — here's a 15 min slot..."):** `"what is [Company] looking to do with AI? here's a 15 min slot if you're up for it: [CALENDLY_LINK]"` — lowercase "what", casual and short, this is the segue + the one clickable ask
+- **CTA line (unchanged from the 2026-08-06 revision):** `"what is [Company] looking to do with AI? here's a 15 min slot if you're up for it: [CALENDLY_LINK]"` — lowercase "what", casual and short, this is the segue + the one clickable ask. **Note (2026-08-19): Rishabh frequently hand-edits this exact clause live before sending — variants seen include "if you're up for a free consultation", "if you'd like an AI consultation", "for a free AI consultation", "for an AI consultation" — no single variant has converged as the new standard (the single most recent send as of this writing still used the line above verbatim), so keep this template default rather than adopting any one live edit.**
 - **Funnel goal (unchanged since 2026-07-28): the call is the primary ask (to understand the lead's AI vision), and the free trial is framed as the post-call next step — NOT a self-serve reply-to-get-a-trial offer.**
 - Calendly link is plain text inline in the CTA line — NOT hyperlinked (Rishabh hyperlinks manually in Gmail); always use the `recovery_v2`/`day1_15min` UTM, never the old `website`/`remarketing` UTM
-- Post-call line: `"After that, I'll get you set up on a free trial, no card required."` — states the trial as the payoff of the call, not an independent offer. This is a benefit statement, not a second CTA.
-- **One-pager line rewritten 2026-08-06 to match Rishabh's actual latest sent style (was previously "I made a one-pager showing how [Company] could use CustomGPT, 30s to read (attached)."):** `"also made a quick doc with some ideas for you (its attached below)"` — lowercase "also", no company name, no "CustomGPT" mention, casual — sits last, right before the sign-off
+- **Post-call line rewritten 2026-08-19 (was previously "After that, I'll get you set up..." from the 2026-08-06 revision):** `"If it's a fit, I'll get you set up on a free trial, no card required."` — states the trial as conditional on fit rather than a given, reads less presumptuous. This one has genuinely converged: seen intermittently since 2026-08-06 and in the majority of the most recent sends. This is a benefit statement, not a second CTA.
+- **One-pager line:** unchanged since the 2026-08-06 revision, `"also made a quick doc with some ideas for you (its attached below)"` — lowercase "also", no company name, no "CustomGPT" mention, casual, sits last right before the sign-off. A couple of the most recent sends dropped "its" to "(attached below)", but that looks like a hasty manual edit rather than a deliberate shift; keep "its" until a clearer pattern emerges.
 - No P.S. Stripe reassurance line — removed 2026-07-20 since there's no longer a Stripe link/card flow in the email to reassure about
 - Sign-off: "Best,\nRishabh" only
 - No bold, no bullets, no extra CTAs
@@ -87,7 +87,7 @@ Rules:
 - Exactly 1 page
 - `@page { margin: 0; size: letter; }` — any nonzero margin causes Chrome to print its default date/file-path/page-count header-footer into that space
 - `body { width: 750px; padding: 18px 32px; font-size: 11.5px; }`
-- Header: left (h1 in purple + subtitle) | right (📅 Book a 15-Min Call button + "with Rishabh @ CustomGPT")
+- Header: `<div class="page-header">` (not `class="header"`) containing `.header-left` (h1 exactly `"How [Company] Can Use CustomGPT"` in purple + subtitle) and `.header-right` (📅 Book a 15-Min Call button + "with Rishabh @ CustomGPT") — this h1 wording and class name are non-negotiable, do not substitute "CustomGPT.ai × [Company]" or `class="header"`
 - Book button href: `https://calendly.com/d/cssp-nwq-6hf/ai-expert-consultation?utm_source=abandoned_cart&utm_medium=email&utm_campaign=recovery_v2&utm_content=day1_15min`
 - 6 bullets (border-left purple, → prefix, one sentence each, human-sounding)
 - CTA box at bottom: 3 bullet points only (extended trial, 15-min call, no credit card needed) — NO button in CTA box
@@ -110,7 +110,7 @@ Include: name, email, role, company, website, LinkedIn, company research summary
 
 Run this exact command (update folder and company name):
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/Desktop/shreegansh om kaali/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --print-to-pdf="/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/{Company} x CustomGPT.pdf" "/Users/riahabharora/hot-vs-cold-abandon-carts/examples/{folder}/one-pager.html"
 ```
 
 ---
